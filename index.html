@@ -4,131 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>돈 버는 법</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: sans-serif;
       margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f5f5f5;
+      padding: 20px;
     }
     .page {
       display: none;
-      padding: 20px;
       text-align: center;
     }
     .active {
       display: block;
     }
-    .title-box {
-      border: 5px solid gold;
-      padding: 20px;
-      margin: 50px auto;
-      max-width: 500px;
-      background-image: url('https://i.imgur.com/VZYjYmW.png');
-      background-size: cover;
-      color: black;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    .input-box {
-      margin: 20px auto;
-    }
     input {
       padding: 10px;
-      width: 60%;
-      font-size: 1rem;
+      margin: 10px;
+      width: 200px;
     }
     button {
       padding: 10px 20px;
-      margin-top: 20px;
-      font-size: 1rem;
-      cursor: pointer;
+      margin-top: 10px;
     }
-    .insta-bg {
-      background-image: url('https://i.imgur.com/FmjfOR4.jpg');
-      background-size: cover;
-      color: white;
-    }
-    .sale-box {
-      padding: 40px;
-      background-color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .sale-box h1, .sale-box h2 {
-      animation: slideUp 1s ease forwards;
-      opacity: 0;
-    }
-    .sale-box h1 { animation-delay: 0.5s; }
-    .sale-box h2 { animation-delay: 2s; }
-    @keyframes slideUp {
-      0% { transform: translateY(100px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-    .timer {
-      font-size: 1.2rem;
-      color: red;
-      margin: 10px 0;
-    }
-    .money-bg {
-      background-image: url('https://i.imgur.com/K6qfOQ2.jpg');
-      background-size: cover;
-    }
-    a { color: blue; text-decoration: underline; }
   </style>
 </head>
 <body>
-
-  <!-- 1단계: 이름 입력 -->
   <div class="page active" id="page1">
-    <div class="title-box">돈 버는 법</div>
-    <div class="input-box">
-      <input type="text" id="name" placeholder="이름을 입력하세요">
-      <br>
-      <button onclick="goToPage(2)">다음</button>
-    </div>
+    <h1>청소년도 가능한 가장 쉬운 돈 버는 법</h1>
+    <input type="text" id="name" placeholder="이름을 입력하세요">
+    <br>
+    <button onclick="goToPage(2)">다음</button>
   </div>
 
-  <!-- 2단계: 인스타그램 아이디 입력 -->
-  <div class="page insta-bg" id="page2">
+  <div class="page" id="page2">
     <h2>인스타그램 아이디를 입력해주세요</h2>
-    <div class="input-box">
-      <input type="text" id="insta" placeholder="@insta_id">
-      <br>
-      <button onclick="goToPage(3)">다음</button>
-    </div>
+    <input type="text" id="insta" placeholder="@insta_id">
+    <br>
+    <button onclick="goToPage(3)">다음</button>
   </div>
 
-  <!-- 3단계: 추천인 입력 -->
   <div class="page" id="page3">
     <h2>추천인 아이디를 입력해주세요 (선택)</h2>
-    <div class="input-box">
-      <input type="text" id="referrer" placeholder="추천인 ID">
-      <br>
-      <button onclick="submitData(); goToPage(4);">다음</button>
-    </div>
+    <input type="text" id="referrer" placeholder="추천인 ID">
+    <br>
+    <button onclick="submitData(); goToPage(4);">다음</button>
   </div>
 
-  <!-- 4단계: 세일 설명 페이지 -->
-  <div class="page money-bg" id="page4">
-    <div class="sale-box">
-      <h1>당신은 돈을 벌고 싶나요?</h1>
-      <h2>여기 완벽한 방법이 있습니다!</h2>
-      <div class="timer" id="timer">5:00</div>
-      <h3 style="color:red;">19900원 → <b>4900원</b> (-75%)</h3>
-      <p style="margin-top:10px;">돈을 벌고싶나요? 잘오셨습니다!<br>
-        여기는 당신이 청소년이여도 아주 쉽고 간단하게 돈을 벌 수 있는 곳입니다!<br>
-        오직 4900원으로 무한한 돈을 버십시오!<br>
-        만일 한달 안에 4900원 이상의 돈을 구하지 못하면 100% 환불 가능합니다!</p>
-      <br>
-      <button onclick="goToPage(5)">결제하러가기</button>
-    </div>
+  <div class="page" id="page4">
+    <h2>당신은 돈을 벌고 싶나요?</h2>
+    <p>여기 완벽한 방법이 있습니다!</p>
+    <p>5:00</p>
+    <p>19900원 → <b>4900원</b> (-75%)</p>
+    <p>
+      돈을 벌고싶나요? 잘오셨습니다!<br>
+      여기는 당신이 청소년이여도 아주 쉽고 간단하게 돈을 벌 수 있는 곳입니다!<br>
+      오직 4900원으로 무한한 돈을 버십시오!<br>
+      만일 한달 안에 4900원 이상의 돈을 구하지 못하면 100% 환불 가능합니다!
+    </p>
+    <button onclick="goToPage(5)">결제하러가기</button>
   </div>
 
-  <!-- 5단계: 결제 및 인스타그램 안내 -->
   <div class="page" id="page5">
     <h2>4900원 결제하기</h2>
-    <p>QR을 스캔해서 <b>카카오페이 송금</b> 해 주세요.</p>
+    <p>QR을 스캔해서 카카오페이 송금해 주세요.</p>
     <img src="https://bogzawon.github.io/youthwave.kr/IMG_0837.jpeg" width="200" alt="카카오페이 QR">
     <p>송금 후, 아래 인스타그램으로 구매 문의 주세요.</p>
     <a href="https://www.instagram.com/youthwave.kr/" target="_blank">@youthwave.kr</a>
@@ -141,19 +79,6 @@
       document.getElementById(`page${currentPage}`).classList.remove('active');
       document.getElementById(`page${pageNumber}`).classList.add('active');
       currentPage = pageNumber;
-
-      if (pageNumber === 4) startTimer();
-    }
-
-    function startTimer() {
-      let time = 300;
-      const timerEl = document.getElementById('timer');
-      const countdown = setInterval(() => {
-        const min = Math.floor(time / 60);
-        const sec = time % 60;
-        timerEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
-        if (--time < 0) clearInterval(countdown);
-      }, 1000);
     }
 
     function submitData() {
