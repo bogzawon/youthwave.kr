@@ -47,7 +47,7 @@
     <h2>추천인 아이디를 입력해주세요 (선택)</h2>
     <input type="text" id="referrer" placeholder="추천인 ID">
     <br>
-    <button onclick="goToPage(4)">다음</button>
+    <button onclick="submitData(); goToPage(4);">다음</button>
   </div>
 
   <div class="page" id="page4">
@@ -79,6 +79,20 @@
       document.getElementById(`page${currentPage}`).classList.remove('active');
       document.getElementById(`page${pageNumber}`).classList.add('active');
       currentPage = pageNumber;
+    }
+
+    function submitData() {
+      const name = document.getElementById('name').value;
+      const insta = document.getElementById('insta').value;
+      const referrer = document.getElementById('referrer').value;
+
+      fetch("https://script.google.com/macros/s/AKfycbwpaFXSkoAePa-STJZWpE_c5mXefFy2cpOnxvg72lD7AXYB-sVEob6WL0z2BWbFsehSwQ/exec", {
+        method: "POST",
+        body: JSON.stringify({ name, insta, referrer }),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then(res => res.text())
+        .then(res => console.log("스프레드시트 응답:", res));
     }
   </script>
 </body>
