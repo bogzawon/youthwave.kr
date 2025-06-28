@@ -10,10 +10,11 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 20px;
       font-size: 18px;
+      color: #222;
     }
     .page {
       display: none;
@@ -61,16 +62,20 @@
       100% { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="page active" id="page1" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px;">
-    <h1>청소년도 가능한 가장 쉬운 돈 버는 법</h1>
+  $1
+    <img src="https://i.imgur.com/VhTkG5V.jpg" alt="해외 스포츠 차트" width="90%" style="border-radius: 10px; margin: 15px 0;">
+    <img src="https://i.imgur.com/NK9qvnd.jpg" alt="돈다발" width="90%" style="border-radius: 10px; margin-bottom: 15px;">
+    <img src="https://i.imgur.com/WXqQ3T2.png" alt="검열된 사람 얼굴" width="90%" style="border-radius: 10px; margin-bottom: 15px;">
     <input type="text" id="name" placeholder="이름을 입력하세요">
     <br>
     <button onclick="goToPage(2)">다음</button>
   </div>
 
-  <div class="page" id="page2" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px;">
+  <div class="page" id="page2" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+    <img src="https://i.imgur.com/zUFezOo.png" alt="인스타그램 꾸미기" width="90%" style="border-radius: 10px; margin-bottom: 20px;">
     <h2>인스타그램 아이디를 입력해주세요</h2>
     <input type="text" id="insta" placeholder="@insta_id">
     <br>
@@ -84,9 +89,8 @@
     <button onclick="handleFinalPage()">다음</button>
   </div>
 
-  <div class="page" id="page4" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px;">
-    <h2>당신은 돈을 벌고 싶나요?</h2>
-    <p>여기 완벽한 방법이 있습니다!</p>
+  $1
+    <img src="https://i.imgur.com/5sovP3S.png" alt="고객 인증" width="90%" style="border-radius: 10px; margin-top: 20px;">
     <p id="timer">5:00</p>
     <p>19900원 → <b>4900원</b> (<span class="highlight">-75%</span>)</p>
     <p>
@@ -98,8 +102,9 @@
     <button onclick="goToPage(5)">결제하러가기</button>
   </div>
 
-  <div class="page" id="page5" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px;">
-    <h2>4900원 결제하기</h2>
+  <div class="page" id="page5" style="background-color: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+    <img src="https://i.imgur.com/TB3cykK.png" alt="결제 신뢰 이미지" width="80%" style="border-radius: 10px; margin-bottom: 20px;">
+    <h2 style="font-size: 28px; color: #2c3e50;">🔐 4900원 결제하기</h2>
     <p>QR을 스캔해서 카카오페이 송금해 주세요.</p>
     <img src="https://bogzawon.github.io/youthwave.kr/IMG_0837.jpeg" width="200" alt="카카오페이 QR">
     <p>송금 후, 아래 내용을 복사해서 인스타그램으로 보내주세요.</p>
