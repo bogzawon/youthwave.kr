@@ -103,12 +103,26 @@
     }
 
     function startTimer() {
-      const timerDisplay = document.getElementById('timer');
-      timerInterval = setInterval(() => {
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          timerDisplay.textContent = "00:00";
-        } else {
+  clearInterval(timerInterval); // 이전 타이머 제거
+  timeLeft = 300; // 항상 5분으로 초기화
+  const timerDisplay = document.getElementById('timer');
+
+  timerInterval = setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      timerDisplay.textContent = "00:00";
+    } else {
+      const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+      const seconds = String(timeLeft % 60).padStart(2, '0');
+      timerDisplay.textContent = `${minutes}:${seconds}`;
+      timeLeft--;
+    }
+  }, 1000);
+}:${seconds}`;
+      timeLeft--;
+    }
+  }, 1000);
+} else {
           const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
           const seconds = String(timeLeft % 60).padStart(2, '0');
           timerDisplay.textContent = `${minutes}:${seconds}`;
