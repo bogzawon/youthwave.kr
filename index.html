@@ -26,6 +26,15 @@
       padding: 10px 20px;
       margin-top: 10px;
     }
+    .highlight {
+      display: inline-block;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -47,14 +56,14 @@
     <h2>추천인 아이디를 입력해주세요 (선택)</h2>
     <input type="text" id="referrer" placeholder="추천인 ID">
     <br>
-    <button onclick="submitData(); goToPage(4);">다음</button>
+    <button onclick="prepareFinal(); goToPage(4); startTimer();">다음</button>
   </div>
 
   <div class="page" id="page4">
     <h2>당신은 돈을 벌고 싶나요?</h2>
     <p>여기 완벽한 방법이 있습니다!</p>
-    <p>5:00</p>
-    <p>19900원 → <b>4900원</b> (-75%)</p>
+    <p id="timer">5:00</p>
+    <p>19900원 → <b>4900원</b> (<span class="highlight">-75%</span>)</p>
     <p>
       돈을 벌고싶나요? 잘오셨습니다!<br>
       여기는 당신이 청소년이여도 아주 쉽고 간단하게 돈을 벌 수 있는 곳입니다!<br>
@@ -68,12 +77,15 @@
     <h2>4900원 결제하기</h2>
     <p>QR을 스캔해서 카카오페이 송금해 주세요.</p>
     <img src="https://bogzawon.github.io/youthwave.kr/IMG_0837.jpeg" width="200" alt="카카오페이 QR">
-    <p>송금 후, 아래 인스타그램으로 구매 문의 주세요.</p>
+    <p>송금 후, 아래 내용을 복사해서 인스타그램으로 보내주세요.</p>
+    <pre id="finalMessage" style="white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 8px; margin: 20px auto; display: inline-block; text-align: left;"></pre>
     <a href="https://www.instagram.com/youthwave.kr/" target="_blank">@youthwave.kr</a>
   </div>
 
   <script>
     let currentPage = 1;
+    let timerInterval;
+    let timeLeft = 300;
 
     function goToPage(pageNumber) {
       document.getElementById(`page${currentPage}`).classList.remove('active');
@@ -81,18 +93,28 @@
       currentPage = pageNumber;
     }
 
-    function submitData() {
+    function prepareFinal() {
       const name = document.getElementById('name').value;
       const insta = document.getElementById('insta').value;
       const referrer = document.getElementById('referrer').value;
 
-      fetch("https://script.google.com/macros/s/AKfycbyhd9cWyeb4W_plmcLbxxl_pjTzkfmxjTc78iEXLUBvBpd0jn57y7Dr86zR8aeDD9mKjg/exec", {
-        method: "POST",
-        body: JSON.stringify({ name, insta, referrer }),
-        headers: { "Content-Type": "application/json" },
-      })
-        .then(res => res.text())
-        .then(res => console.log("스프레드시트 응답:", res));
+      const message = `이름: ${name}\n인스타그램 아이디: ${insta}\n추천인: ${referrer || '없음'}`;
+      document.getElementById('finalMessage').textContent = message;
+    }
+
+    function startTimer() {
+      const timerDisplay = document.getElementById('timer');
+      timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          timerDisplay.textContent = "00:00";
+        } else {
+          const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+          const seconds = String(timeLeft % 60).padStart(2, '0');
+          timerDisplay.textContent = `${minutes}:${seconds}`;
+          timeLeft--;
+        }
+      }, 1000);
     }
   </script>
 </body>
