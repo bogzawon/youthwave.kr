@@ -61,23 +61,110 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+      .bounce {
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+      }
+      to {
+        text-shadow: 0 0 20px #ffa500, 0 0 30px #ffa500;
+      }
+    }
+
+    .shake {
+      animation: shake 0.5s infinite;
+    }
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      75% {
+        transform: translateX(5px);
+      }
+    }
+
+    .rotate {
+      display: inline-block;
+      animation: rotate 2s linear infinite;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+      .flash {
+      animation: flash 1s infinite;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .wiggle {
+      animation: wiggle 0.6s infinite;
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+
+    .zoom {
+      animation: zoom 2s infinite ease-in-out;
+    }
+    @keyframes zoom {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .spin {
+      animation: spin 5s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .slide-in {
+      animation: slide-in 1s ease-out;
+    }
+    @keyframes slide-in {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="page active" id="page1" style="background-color: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-    <h1 style="font-size: 32px; color: #333;">💸 청소년도 가능한 가장 쉬운 돈 버는 법 💸</h1>
-    <div style="margin-top: 20px;">
-  <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" width="30%" style="margin: 10px; border-radius: 10px;">
-  <img src="https://images.unsplash.com/photo-1549921296-3a65b66e9f74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" width="30%" style="margin: 10px; border-radius: 10px;">
-  <img src="https://images.unsplash.com/photo-1627470010843-3c9ab3b2d062?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" width="30%" style="margin: 10px; border-radius: 10px;">
-</div>
+    <h1 class="glow bounce zoom wiggle flash" style="font-size: 32px; color: #333;">💸 청소년도 가능한 가장 쉬운 돈 버는 법 💸</h1>
+    
     
     
     
     <input type="text" id="name" placeholder="이름을 입력하세요">
     <br>
-    <button onclick="goToPage(2)">다음</button>
+    <button class="shake spin slide-in" onclick="goToPage(2)">다음</button>
   </div>
 
   <div class="page" id="page2" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
@@ -100,7 +187,7 @@
     <h2>당신은 돈을 벌고 싶나요?</h2>
     <p>여기 완벽한 방법이 있습니다!</p>
     <p id="timer">5:00</p>
-    <p>19900원 → <b>4900원</b> (<span class="highlight">-75%</span>)</p>
+    <p>19900원 → <b>4900원</b> (<span class="highlight rotate flash">-75%</span>)</p>
     <p>
       돈을 벌고싶나요? 잘오셨습니다!<br>
       여기는 당신이 청소년이여도 아주 쉽고 간단하게 돈을 벌 수 있는 곳입니다!<br>
