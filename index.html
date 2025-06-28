@@ -1,12 +1,12 @@
+<!-- [전체 코드 시작] -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>청소년도 가능한 가장 쉬운 돈 버는 법</title>
   <style>
     body {
-      
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -61,147 +61,78 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-      .bounce {
-      animation: bounce 1.5s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
     .glow {
       animation: glow 2s ease-in-out infinite alternate;
     }
     @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
-      }
-      to {
-        text-shadow: 0 0 20px #ffa500, 0 0 30px #ffa500;
-      }
+      from { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+      to { text-shadow: 0 0 20px #ffa500, 0 0 30px #ffa500; }
     }
-
-    .shake {
-      animation: shake 0.5s infinite;
+    .bounce {
+      animation: bounce 1.5s infinite;
     }
-    @keyframes shake {
-      0%, 100% {
-        transform: translateX(0);
-      }
-      25% {
-        transform: translateX(-5px);
-      }
-      75% {
-        transform: translateX(5px);
-      }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-
-    .rotate {
-      display: inline-block;
-      animation: rotate 2s linear infinite;
-    }
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-      .flash {
+    .flash {
       animation: flash 1s infinite;
     }
     @keyframes flash {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.2; }
     }
-
-    .wiggle {
-      animation: wiggle 0.6s infinite;
+    .rotate {
+      display: inline-block;
+      animation: rotate 2s linear infinite;
     }
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(3deg); }
-      75% { transform: rotate(-3deg); }
-    }
-
-    .zoom {
-      animation: zoom 2s infinite ease-in-out;
-    }
-    @keyframes zoom {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    .spin {
-      animation: spin 5s linear infinite;
-    }
-    @keyframes spin {
+    @keyframes rotate {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-
-    .slide-in {
-      animation: slide-in 1s ease-out;
-    }
-    @keyframes slide-in {
-      from { transform: translateX(-100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="page active" id="page1" style="background-color: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-    <h1 class="glow bounce zoom wiggle flash" style="font-size: 32px; color: #333;">💸 청소년도 가능한 가장 쉬운 돈 버는 법 💸</h1>
-    
-    
-    
-    
-    <input type="text" id="name" placeholder="이름을 입력하세요">
-    <br>
-    <button class="shake spin slide-in" onclick="goToPage(2)">다음</button>
+    <h1 class="glow bounce flash" style="font-size: 32px; color: #333;">💸 청소년도 가능한 가장 쉬운 돈 버는 법 💸</h1>
+    <input type="text" id="name" placeholder="이름을 입력하세요" />
+    <br />
+    <button onclick="goToPage(2)">다음</button>
   </div>
 
   <div class="page" id="page2" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-    
     <h2>인스타그램 아이디를 입력해주세요</h2>
-    <input type="text" id="insta" placeholder="@insta_id">
-    <br>
+    <input type="text" id="insta" placeholder="@insta_id" />
+    <br />
     <button onclick="goToPage(3)">다음</button>
   </div>
 
   <div class="page" id="page3" style="background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
     <h2>추천인 아이디를 입력해주세요 (선택)</h2>
-    <input type="text" id="referrer" placeholder="추천인 ID">
-    <br>
+    <input type="text" id="referrer" placeholder="추천인 ID" />
+    <p id="recoCode" style="font-weight: bold; color: #0077cc; margin-top: 15px;"></p>
+    <br />
     <button onclick="handleFinalPage()">다음</button>
   </div>
 
   <div class="page" id="page4" style="background-color: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-    
     <h2>당신은 돈을 벌고 싶나요?</h2>
     <p>여기 완벽한 방법이 있습니다!</p>
     <p id="timer">5:00</p>
     <p>19900원 → <b>4900원</b> (<span class="highlight rotate flash">-75%</span>)</p>
     <p>
-      돈을 벌고싶나요? 잘오셨습니다!<br>
-      여기는 당신이 청소년이여도 아주 쉽고 간단하게 돈을 벌 수 있는 곳입니다!<br>
-      오직 4900원으로 무한한 돈을 버십시오!<br>
+      돈을 벌고싶나요? 잘오셨습니다!<br />
+      여기는 당신이 청소년이여도 아주 쉽고 간단하게 돈을 벌 수 있는 곳입니다!<br />
+      오직 4900원으로 무한한 돈을 버십시오!<br />
       만일 한달 안에 4900원 이상의 돈을 구하지 못하면 100% 환불 가능합니다!
     </p>
     <button onclick="goToPage(5)">결제하러가기</button>
   </div>
 
   <div class="page" id="page5" style="background-color: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-    
     <h2 style="font-size: 28px; color: #2c3e50;">🔐 4900원 결제하기</h2>
     <p>QR을 스캔해서 카카오페이 송금해 주세요.</p>
-    <img src="https://bogzawon.github.io/youthwave.kr/IMG_0837.jpeg" width="200" alt="카카오페이 QR">
+    <img src="https://bogzawon.github.io/youthwave.kr/IMG_0837.jpeg" width="200" alt="카카오페이 QR" />
     <p>송금 후, 아래 내용을 복사해서 인스타그램으로 보내주세요.</p>
     <pre id="finalMessage" style="white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 8px; margin: 20px auto; display: inline-block; text-align: left;"></pre>
     <a href="https://www.instagram.com/youthwave.kr/" target="_blank">@youthwave.kr</a>
@@ -213,8 +144,8 @@
     let timeLeft = 300;
 
     function goToPage(pageNumber) {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      document.getElementById(`page${pageNumber}`).classList.add('active');
+      document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+      document.getElementById(`page${pageNumber}`).classList.add("active");
       currentPage = pageNumber;
     }
 
@@ -225,31 +156,44 @@
     }
 
     function prepareFinal() {
-      const name = document.getElementById('name').value;
-      const insta = document.getElementById('insta').value;
-      const referrer = document.getElementById('referrer').value;
+      const name = document.getElementById("name").value;
+      const insta = document.getElementById("insta").value;
+      const referrer = document.getElementById("referrer").value;
 
-      const message = `이름: ${name}\n인스타그램 아이디: ${insta}\n추천인: ${referrer || '없음'}`;
-      document.getElementById('finalMessage').textContent = message;
+      const message = `이름: ${name}\n인스타그램 아이디: ${insta}\n추천인: ${referrer || "없음"}`;
+      document.getElementById("finalMessage").textContent = message;
     }
 
     function startTimer() {
       clearInterval(timerInterval);
       timeLeft = 300;
-      const timerDisplay = document.getElementById('timer');
+      const timerDisplay = document.getElementById("timer");
 
       timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
           clearInterval(timerInterval);
           timerDisplay.textContent = "00:00";
         } else {
-          const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
-          const seconds = String(timeLeft % 60).padStart(2, '0');
+          const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+          const seconds = String(timeLeft % 60).padStart(2, "0");
           timerDisplay.textContent = `${minutes}:${seconds}`;
           timeLeft--;
         }
       }, 1000);
     }
+
+    // ✅ 추천인 코드 자동 표시
+    document.getElementById("referrer").addEventListener("focus", function () {
+      const name = document.getElementById("name").value.trim();
+      const insta = document.getElementById("insta").value.trim().replace("@", "");
+      if (name && insta) {
+        const code = name + insta;
+        document.getElementById("recoCode").textContent = `📌 내 추천인 코드: ${code}`;
+      } else {
+        document.getElementById("recoCode").textContent = `⚠️ 이름과 인스타를 먼저 입력하세요.`;
+      }
+    });
   </script>
 </body>
 </html>
+<!-- [전체 코드 끝] -->
